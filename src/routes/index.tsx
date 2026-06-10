@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
   Mail, MapPin, Github, Linkedin, Twitter, Instagram, Download,
   ArrowRight, ArrowUp, Moon, Sun, Menu, X, ExternalLink,
@@ -313,7 +313,7 @@ function Hero() {
 
 /* ---------- Section helper ---------- */
 function Section({ id, eyebrow, title, subtitle, children }: {
-  id: string; eyebrow: string; title: ReactNodeLike; subtitle?: string; children: ReactNodeLike;
+  id: string; eyebrow: string; title: ReactNode; subtitle?: string; children: ReactNode;
 }) {
   return (
     <section id={id} className="relative py-24 px-4">
@@ -332,8 +332,6 @@ function Section({ id, eyebrow, title, subtitle, children }: {
     </section>
   );
 }
-type ReactNodeLike = React.ReactNode;
-
 /* ---------- About ---------- */
 function About() {
   const highlights = [
