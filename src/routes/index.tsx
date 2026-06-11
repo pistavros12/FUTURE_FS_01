@@ -9,6 +9,11 @@ import {
 } from "lucide-react";
 import profileImg from "@/assets/profile.jpg";
 import graduationKg from "@/assets/graduation-kg.png.asset.json";
+import certSpaceScience from "@/assets/cert-space-science.png.asset.json";
+import certJusssRank from "@/assets/cert-jusss-rank.png.asset.json";
+import certWomensClub from "@/assets/cert-womens-club.png.asset.json";
+import certUdacityAi from "@/assets/cert-udacity-ai.png.asset.json";
+import certStemCs from "@/assets/cert-stem-cs.png.asset.json";
 import { ThemeProvider, useTheme } from "@/components/theme-provider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -710,7 +715,17 @@ function Certifications() {
   const certs: Array<{
     title: string; provider: string; issued: string; expires?: string;
     credentialId?: string; category: string; desc: string; icon: typeof Award;
+    image?: string;
   }> = [
+    {
+      title: "Artificial Intelligence Fundamentals",
+      provider: "Udacity (Part of Accenture) — Nanodegree",
+      issued: "June 13, 2025",
+      category: "AI / Nanodegree",
+      desc: "Verified Nanodegree completion covering core AI concepts: search, knowledge representation, machine learning foundations, and applied problem solving.",
+      icon: Bot,
+      image: certUdacityAi.url,
+    },
     {
       title: "Best Creative Award — Telsem Hack 2025",
       provider: "Telsem Hack · United Latino Students Association",
@@ -721,36 +736,55 @@ function Certifications() {
       icon: Sparkles,
     },
     {
-      title: "Graphic Design & Coding Track",
-      provider: "Telsem Hack",
-      issued: "2025",
-      category: "Design & Code",
-      desc: "Completed intensive training in graphic design and programming fundamentals during the Telsem Hack program.",
-      icon: Palette,
-    },
-    {
       title: "Vibe Coding Certificate",
       provider: "GeezX AI Bootcamp",
       issued: "2025",
       category: "AI Bootcamp",
       desc: "Completed the GeezX AI bootcamp focused on AI-assisted development, and built a project as part of the program.",
-      icon: Bot,
-    },
-    {
-      title: "Programming Fundamentals",
-      provider: "Udacity",
-      issued: "August 2025",
-      expires: "September 2025",
-      category: "Programming",
-      desc: "Foundational programming course covering core concepts, problem-solving and software development practices.",
       icon: Code2,
     },
     {
-      title: "ESSLCE — 551/600",
+      title: "STEM Center Training — Computer Science & Electrical Engineering",
+      provider: "Jimma University STEM Center",
+      issued: "March 17 – June 17, 2022",
+      category: "STEM Training",
+      desc: "Three-month STEM Center program at Jimma University covering foundations of Computer Science and Electrical Engineering — hardware basics, programming logic, and applied problem solving.",
+      icon: Code2,
+      image: certStemCs.url,
+    },
+    {
+      title: "Certificate of Participation — Space Science & Astronomy",
+      provider: "Ethiopian Space Science Society (ESSS) — Jimma Branch",
+      issued: "February 3, 2022",
+      category: "Space Science",
+      desc: "Active participant in the Space Science, Astronomy and School Outreach Program at Jimma University, jointly organized by ESSS Jimma Branch, Jimma University CNS, and the Ethiopian Space Science & Technology Institute.",
+      icon: Sparkles,
+      image: certSpaceScience.url,
+    },
+    {
+      title: "Top of Class — Grade 10, Average 97.03",
+      provider: "Jimma University Special Secondary School (JUSSS)",
+      issued: "2015 E.C. (2022/23)",
+      category: "Academic Excellence",
+      desc: "Awarded the JUSSS Woraqaa Ragaa / የምስክር ወረቀት for ranking 1st in Grade 10 with an outstanding average of 97.03 — recognized for exceptional academic dedication.",
+      icon: GraduationCap,
+      image: certJusssRank.url,
+    },
+    {
+      title: "Certificate of Appreciation — Women's Club",
+      provider: "Jimma University Special Secondary School (JUSSS)",
+      issued: "2022 – 2025",
+      category: "Leadership & Community",
+      desc: "Honored for three years of active participation and significant contributions to the school's Women's Club — supporting peers, organizing activities, and promoting empowerment.",
+      icon: Heart,
+      image: certWomensClub.url,
+    },
+    {
+      title: "ESSLCE — 551 / 600",
       provider: "Ethiopian Ministry of Education",
       issued: "2025",
       category: "National Exam",
-      desc: "Scored 551 out of 600 on the Ethiopian Secondary School Leaving Certificate Examination, qualifying for university.",
+      desc: "Scored 551 out of 600 on the Ethiopian Secondary School Leaving Certificate Examination, qualifying for university entrance.",
       icon: GraduationCap,
     },
     {
@@ -762,15 +796,31 @@ function Certifications() {
       icon: Award,
     },
   ];
+  const [preview, setPreview] = useState<string | null>(null);
   return (
     <Section id="certifications" eyebrow="Credentials" title="Certifications & awards"
-      subtitle="Recognized milestones, awards and learning programs along my journey.">
+      subtitle="Recognized milestones, awards and learning programs along my journey — click any certificate image to view full size.">
       <div className="grid md:grid-cols-2 gap-5">
         {certs.map((c, i) => (
           <motion.div key={c.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.6 }}
+            viewport={{ once: true }} transition={{ delay: i * 0.06, duration: 0.6 }}
             className="relative rounded-2xl glass p-6 shadow-card hover:shadow-elevated transition-all overflow-hidden">
             <div className="absolute top-0 left-0 right-0 h-1 eth-stripe" />
+            {c.image && (
+              <button
+                type="button"
+                onClick={() => setPreview(c.image!)}
+                className="group block w-full mb-4 overflow-hidden rounded-xl border border-border bg-surface-elevated"
+                aria-label={`View ${c.title} certificate`}
+              >
+                <img
+                  src={c.image}
+                  alt={`${c.title} certificate`}
+                  loading="lazy"
+                  className="w-full h-44 object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </button>
+            )}
             <div className="flex items-start gap-4">
               <span className="grid h-12 w-12 place-items-center rounded-xl bg-[var(--eth-yellow)]/20 shrink-0">
                 <c.icon className="h-6 w-6 text-[var(--eth-yellow)]" />
@@ -798,6 +848,30 @@ function Certifications() {
           </motion.div>
         ))}
       </div>
+      <AnimatePresence>
+        {preview && (
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            onClick={() => setPreview(null)}
+            className="fixed inset-0 z-[100] grid place-items-center bg-black/80 backdrop-blur-sm p-4 cursor-zoom-out"
+          >
+            <button
+              onClick={() => setPreview(null)}
+              className="absolute top-4 right-4 grid h-10 w-10 place-items-center rounded-xl glass text-foreground"
+              aria-label="Close"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <motion.img
+              initial={{ scale: 0.9 }} animate={{ scale: 1 }} exit={{ scale: 0.9 }}
+              src={preview}
+              alt="Certificate preview"
+              onClick={(e) => e.stopPropagation()}
+              className="max-h-[90vh] max-w-[95vw] rounded-xl shadow-elevated cursor-default"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Section>
   );
 }
