@@ -8,6 +8,7 @@ import {
   Send, Globe, Lightbulb, Rocket, BookOpen, Target, Heart, Zap,
 } from "lucide-react";
 import profileImg from "@/assets/profile.jpg";
+import graduationKg from "@/assets/graduation-kg.png.asset.json";
 import { ThemeProvider, useTheme } from "@/components/theme-provider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
