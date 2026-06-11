@@ -386,8 +386,6 @@ function About() {
 
 
 /* ---------- Education ---------- */
-import graduationKg from "@/assets/graduation-kg.png.asset.json";
-
 function Education() {
   const items: Array<{
     institution: string; degree: string; duration: string; desc: string; image?: string;
