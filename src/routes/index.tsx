@@ -335,10 +335,10 @@ function Section({ id, eyebrow, title, subtitle, children }: {
 /* ---------- About ---------- */
 function About() {
   const highlights = [
-    { icon: GraduationCap, label: "Student at", value: "Shaggar Institute of Technology" },
+    { icon: GraduationCap, label: "Freshman at", value: "Shaggar Institute of Technology" },
     { icon: MapPin, label: "Based in", value: "Addis Ababa, Ethiopia" },
     { icon: Briefcase, label: "Open to", value: "Internships & Freelance" },
-    { icon: Heart, label: "Passions", value: "Design · Code · Innovation" },
+    { icon: Heart, label: "Passions", value: "Community · Maths · Code" },
   ];
   return (
     <Section id="about" eyebrow="About Me"
@@ -347,18 +347,20 @@ function About() {
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           transition={{ duration: 0.6 }} className="space-y-5 text-muted-foreground leading-relaxed text-lg">
           <p>
-            I'm a student at <span className="text-foreground font-medium">Shaggar Institute of Technology</span> with a
-            growing passion for technology, creativity, and software development. My interests span graphic design, bot
-            development, and web development — I enjoy learning new technologies, solving problems, and creating digital
-            experiences that are both functional and visually appealing.
+            I'm a freshman at <span className="text-foreground font-medium">Shaggar Institute of Technology (SIT)</span>,
+            pursuing a BSc with a deep passion for technology, mathematics, and using software to{" "}
+            <span className="text-foreground font-medium">uplift the Ethiopian community</span>. I've already built
+            two class projects in my first year and love collaborating in teams to turn ideas into reality.
           </p>
           <p>
-            As an aspiring developer, I'm continuously improving my technical skills while exploring opportunities to
-            contribute to meaningful projects. My goal is to build innovative solutions that create real-world impact
-            and help me grow into a versatile technology professional.
+            My journey blends graphic design, bot development, and web development. Whether I'm mentoring Grade 12
+            students preparing for the ESSLCE, building bots for my church service, or designing meaningful user
+            experiences, my goal is the same: <span className="text-foreground font-medium">help others and create
+            real-world impact</span>. Maths has been the thread connecting it all — it sharpens how I solve problems
+            and design systems.
           </p>
           <div className="flex flex-wrap gap-2 pt-2">
-            {["Lifelong Learner", "Problem Solver", "Creative Thinker", "Team Player", "Innovator"].map((t) => (
+            {["Community-Driven", "Team Player", "Maths Lover", "Problem Solver", "Lifelong Learner", "Creative Thinker"].map((t) => (
               <span key={t} className="rounded-full glass px-3 py-1.5 text-sm font-medium">
                 {t}
               </span>
@@ -381,30 +383,60 @@ function About() {
   );
 }
 
+
 /* ---------- Education ---------- */
+import graduationKg from "@/assets/graduation-kg.png.asset.json";
+
 function Education() {
-  const items = [
+  const items: Array<{
+    institution: string; degree: string; duration: string; desc: string; image?: string;
+  }> = [
     {
-      institution: "Shaggar Institute of Technology",
-      degree: "Bachelor's Degree",
+      institution: "Shaggar Institute of Technology (SIT)",
+      degree: "BSc — Freshman",
       duration: "Oct 2025 — Jun 2030",
-      desc: "Pursuing foundations in technology, software development and creative problem solving.",
+      desc: "Pursuing a Bachelor's degree in technology, building foundations across software development, mathematics and creative problem solving.",
     },
     {
-      institution: "JUSSS High School",
-      degree: "High School Diploma",
+      institution: "Jimma University Specialized Secondary School (JUSSS)",
+      degree: "High School · Grade 9–12",
       duration: "2022 — 2025",
-      desc: "Built academic foundations and discovered an early passion for design and computing.",
+      desc: "Completed ESSLCE with 551/600, joining one of Ethiopia's most competitive secondary schools and sharpening academic and analytical skills.",
+    },
+    {
+      institution: "Felege Tibeb Primary School",
+      degree: "Grade 5 — 8 · Jimma City, Oromia",
+      duration: "Completed",
+      desc: "Earned a Ministry average of 94.05, ranking among top students and developing a lasting love for mathematics.",
+    },
+    {
+      institution: "HoraHayu School",
+      degree: "Grade 2 — 4 · Dedo, Jimma, Oromia",
+      duration: "Completed",
+      desc: "Continued elementary education in a community-rooted school environment.",
+    },
+    {
+      institution: "Dedo Elementary School",
+      degree: "Grade 1 · Dedo, Jimma",
+      duration: "Completed",
+      desc: "Began formal primary education and the foundation of my academic journey.",
+    },
+    {
+      institution: "ETN Kindergarten",
+      degree: "Kindergarten",
+      duration: "Early years",
+      desc: "Where it all began — my first graduation at the age of 6.",
+      image: graduationKg.url,
     },
   ];
   return (
-    <Section id="education" eyebrow="Education" title="Academic journey" subtitle="A timeline of the milestones shaping my path in technology.">
+    <Section id="education" eyebrow="Education" title="Academic journey" subtitle="From kindergarten in Jimma to a BSc in Addis Ababa — the milestones shaping my path in technology.">
       <div className="relative pl-6 sm:pl-10">
         <div className="absolute left-2 sm:left-4 top-0 bottom-0 w-px eth-stripe opacity-40" />
         <div className="space-y-8">
           {items.map((it, i) => (
             <motion.div key={it.institution} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.6 }} className="relative">
+              viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.6 }} className="relative">
               <span className="absolute -left-6 sm:-left-10 top-6 grid h-5 w-5 place-items-center">
                 <span className="absolute inset-0 rounded-full eth-stripe blur-md opacity-70" />
                 <span className="relative h-3 w-3 rounded-full eth-stripe ring-4 ring-background" />
@@ -420,6 +452,16 @@ function Education() {
                   </span>
                 </div>
                 <p className="mt-3 text-muted-foreground">{it.desc}</p>
+                {it.image && (
+                  <div className="mt-4 flex items-center gap-4">
+                    <img src={it.image} alt="Ribka at her KG graduation, age 6"
+                      loading="lazy" width={120} height={160}
+                      className="h-32 w-24 object-cover rounded-xl ring-1 ring-border shadow-card" />
+                    <p className="text-xs text-muted-foreground italic">
+                      A treasured memory — my very first graduation. 🎓
+                    </p>
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}
@@ -428,6 +470,7 @@ function Education() {
     </Section>
   );
 }
+
 
 /* ---------- Skills ---------- */
 function Skills() {
@@ -523,34 +566,56 @@ function Skills() {
 function Projects() {
   const projects = [
     {
-      title: "Portfolio Website", category: "Web",
-      desc: "A modern personal portfolio showcasing my skills, education, and projects.",
-      tech: ["HTML", "CSS", "JavaScript", "React"],
+      title: "Moodflix", category: "Web",
+      desc: "A movie recommendation app that suggests films based on the user's mood — with a special feature highlighting Ethiopian movies. Featured on Devpost.",
+      tech: ["React", "JavaScript", "API"],
       gradient: "linear-gradient(135deg, var(--eth-green), var(--eth-yellow))",
-      icon: Globe,
+      icon: Sparkles,
     },
     {
-      title: "Bot Development Project", category: "Bot",
-      desc: "Automation and chatbot demonstrating problem-solving and programming skills.",
-      tech: ["JavaScript", "Node.js"],
+      title: "G12 Online Exam Platform", category: "Web",
+      desc: "A web-based exam system mirroring the new Ethiopian online entrance exam format, helping Grade 12 students practice for the ESSLCE.",
+      tech: ["HTML", "CSS", "JavaScript"],
+      gradient: "linear-gradient(135deg, var(--eth-green), var(--eth-red))",
+      icon: GraduationCap,
+    },
+    {
+      title: "Church Service Bot", category: "Bot",
+      desc: "A bot built to support and automate communication for my church community, making information more accessible to members.",
+      tech: ["JavaScript", "Bot API"],
       gradient: "linear-gradient(135deg, var(--eth-red), var(--eth-yellow))",
       icon: Bot,
     },
     {
-      title: "Graphic Design Collection", category: "Design",
-      desc: "A showcase of creative graphic design work and visual communication projects.",
-      tech: ["Design Tools", "Branding"],
+      title: "G12 Student Support Bot", category: "Bot",
+      desc: "A helper bot offering advice, study tips and resources for Grade 12 students preparing for their national exam.",
+      tech: ["JavaScript", "Node.js"],
       gradient: "linear-gradient(135deg, var(--eth-yellow), var(--eth-green))",
-      icon: Palette,
+      icon: Bot,
     },
     {
-      title: "Future Interns Projects", category: "Web",
-      desc: "Projects completed through internship and professional development programs.",
-      tech: ["Various"],
-      gradient: "linear-gradient(135deg, var(--eth-green), var(--eth-red))",
+      title: "Telsem Hack Team Project", category: "Web",
+      desc: "A team project from the Telsem Hack hackathon where we earned the Best Creative Award for our innovative approach.",
+      tech: ["Team", "Web", "Design"],
+      gradient: "linear-gradient(135deg, var(--eth-yellow), var(--eth-red))",
       icon: Rocket,
     },
+    {
+      title: "GeezX AI Vibe Coding Project", category: "Web",
+      desc: "A project developed during the GeezX AI bootcamp exploring AI-assisted 'vibe coding' workflows.",
+      tech: ["AI", "Web"],
+      gradient: "linear-gradient(135deg, var(--eth-green), var(--eth-yellow))",
+      icon: Lightbulb,
+    },
+    {
+      title: "Graphic Design Collection", category: "Design",
+      desc: "A growing showcase of graphic design and visual communication work created during the Telsem Hack design track and beyond.",
+      tech: ["Design", "Branding"],
+      gradient: "linear-gradient(135deg, var(--eth-red), var(--eth-green))",
+      icon: Palette,
+    },
   ];
+
   const categories = ["All", "Web", "Bot", "Design"];
   const [filter, setFilter] = useState("All");
   const filtered = filter === "All" ? projects : projects.filter((p) => p.category === filter);
@@ -643,38 +708,89 @@ function Services() {
 
 /* ---------- Certifications ---------- */
 function Certifications() {
-  const certs = [
+  const certs: Array<{
+    title: string; provider: string; issued: string; expires?: string;
+    credentialId?: string; category: string; desc: string; icon: typeof Award;
+  }> = [
     {
-      title: "Programming Fundamentals", provider: "Udacity",
-      issued: "August 2025", expires: "September 2025",
+      title: "Best Creative Award — Telsem Hack 2025",
+      provider: "Telsem Hack · United Latino Students Association",
+      issued: "July 2025",
+      credentialId: "0f3d3d55-526b-4517-8719-48a133148323",
+      category: "Hackathon",
+      desc: "Recognized with the Best Creative Award as part of a team for an innovative project combining design thinking and code.",
+      icon: Sparkles,
     },
     {
-      title: "Telsem Hack 2025", provider: "United Latino Students Association",
-      issued: "July 2025", credentialId: "0f3d3d55-526b-4517-8719-48a133148323",
+      title: "Graphic Design & Coding Track",
+      provider: "Telsem Hack",
+      issued: "2025",
+      category: "Design & Code",
+      desc: "Completed intensive training in graphic design and programming fundamentals during the Telsem Hack program.",
+      icon: Palette,
+    },
+    {
+      title: "Vibe Coding Certificate",
+      provider: "GeezX AI Bootcamp",
+      issued: "2025",
+      category: "AI Bootcamp",
+      desc: "Completed the GeezX AI bootcamp focused on AI-assisted development, and built a project as part of the program.",
+      icon: Bot,
+    },
+    {
+      title: "Programming Fundamentals",
+      provider: "Udacity",
+      issued: "August 2025",
+      expires: "September 2025",
+      category: "Programming",
+      desc: "Foundational programming course covering core concepts, problem-solving and software development practices.",
+      icon: Code2,
+    },
+    {
+      title: "ESSLCE — 551/600",
+      provider: "Ethiopian Ministry of Education",
+      issued: "2025",
+      category: "National Exam",
+      desc: "Scored 551 out of 600 on the Ethiopian Secondary School Leaving Certificate Examination, qualifying for university.",
+      icon: GraduationCap,
+    },
+    {
+      title: "Ministry Average — 94.05",
+      provider: "Felege Tibeb Primary School · Jimma",
+      issued: "Grade 8",
+      category: "Academic",
+      desc: "Achieved a Ministry-recognized average of 94.05, placing among the top-performing students in the region.",
+      icon: Award,
     },
   ];
   return (
-    <Section id="certifications" eyebrow="Credentials" title="Certifications"
-      subtitle="Recognized milestones along my learning journey.">
+    <Section id="certifications" eyebrow="Credentials" title="Certifications & awards"
+      subtitle="Recognized milestones, awards and learning programs along my journey.">
       <div className="grid md:grid-cols-2 gap-5">
         {certs.map((c, i) => (
           <motion.div key={c.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.6 }}
+            viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.6 }}
             className="relative rounded-2xl glass p-6 shadow-card hover:shadow-elevated transition-all overflow-hidden">
             <div className="absolute top-0 left-0 right-0 h-1 eth-stripe" />
             <div className="flex items-start gap-4">
-              <span className="grid h-12 w-12 place-items-center rounded-xl bg-[var(--eth-yellow)]/20">
-                <Award className="h-6 w-6 text-[var(--eth-yellow)]" />
+              <span className="grid h-12 w-12 place-items-center rounded-xl bg-[var(--eth-yellow)]/20 shrink-0">
+                <c.icon className="h-6 w-6 text-[var(--eth-yellow)]" />
               </span>
-              <div className="flex-1">
-                <h3 className="font-display text-lg font-bold">{c.title}</h3>
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-[10px] uppercase tracking-widest font-semibold rounded-full bg-[var(--eth-green)]/10 text-[var(--eth-green)] px-2 py-0.5">
+                    {c.category}
+                  </span>
+                </div>
+                <h3 className="mt-2 font-display text-lg font-bold leading-tight">{c.title}</h3>
                 <p className="text-sm text-muted-foreground">{c.provider}</p>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
                 <div className="mt-3 flex flex-wrap gap-3 text-xs text-muted-foreground">
                   <span>Issued: <span className="text-foreground font-medium">{c.issued}</span></span>
                   {c.expires && <span>Expires: <span className="text-foreground font-medium">{c.expires}</span></span>}
                 </div>
                 {c.credentialId && (
-                  <div className="mt-3 text-xs text-muted-foreground break-all">
+                  <div className="mt-2 text-xs text-muted-foreground break-all">
                     ID: <span className="font-mono text-foreground/80">{c.credentialId}</span>
                   </div>
                 )}
@@ -686,6 +802,7 @@ function Certifications() {
     </Section>
   );
 }
+
 
 /* ---------- Achievements ---------- */
 function Achievements() {
