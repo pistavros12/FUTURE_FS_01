@@ -224,7 +224,7 @@ function Hero() {
 
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.45, duration: 0.6 }}
             className="max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            A passionate technology enthusiast from Ethiopia 🇪🇹. I combine creativity and code through graphic design,
+            A passionate technology enthusiast from Ethiopia. I combine creativity and code through graphic design,
             bot development, and web development — continuously learning, building, and exploring new ways to create
             meaningful digital experiences.
           </motion.p>
