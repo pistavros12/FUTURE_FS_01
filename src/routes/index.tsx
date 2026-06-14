@@ -942,8 +942,13 @@ function Contact() {
           <div className="rounded-2xl glass p-6 shadow-card">
             <div className="text-xs uppercase tracking-wider text-muted-foreground">Follow</div>
             <div className="mt-3 flex gap-2">
-              {[Github, Linkedin, Twitter, Instagram].map((Icon, i) => (
-                <a key={i} href="#" className="grid h-10 w-10 place-items-center rounded-xl border border-border hover:eth-stripe hover:text-white hover:border-transparent transition-all">
+              {[
+                { Icon: Linkedin, href: "https://www.linkedin.com/in/ribka-begashaw-lissanu-820439376" },
+                { Icon: Instagram, href: "https://instagram.com/pistavros12" },
+                { Icon: Send, href: "https://t.me/genesis2415" },
+                { Icon: Mail, href: "mailto:pistavrosbegashaw@gmail.com" },
+              ].map(({ Icon, href }, i) => (
+                <a key={i} href={href} target="_blank" rel="noreferrer" className="grid h-10 w-10 place-items-center rounded-xl border border-border hover:eth-stripe hover:text-white hover:border-transparent transition-all">
                   <Icon className="h-4 w-4" />
                 </a>
               ))}
