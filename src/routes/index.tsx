@@ -7,7 +7,8 @@ import {
   Palette, Bot, Code2, GraduationCap, Award, Sparkles, Briefcase,
   Send, Globe, Lightbulb, Rocket, BookOpen, Target, Heart, Zap,
 } from "lucide-react";
-import profileImg from "@/assets/profile.jpg";
+import profileAsset from "@/assets/ribka-portrait.png.asset.json";
+const profileImg = profileAsset.url;
 import graduationKg from "@/assets/graduation-kg.png.asset.json";
 import certSpaceScience from "@/assets/cert-space-science.png.asset.json";
 import certJusssRank from "@/assets/cert-jusss-rank.png.asset.json";
