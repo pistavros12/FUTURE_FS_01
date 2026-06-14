@@ -2,12 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
-  Mail, MapPin, Github, Linkedin, Twitter, Instagram, Download,
+  Mail, MapPin, Linkedin, Instagram, Download,
   ArrowRight, ArrowUp, Moon, Sun, Menu, X, ExternalLink,
   Palette, Bot, Code2, GraduationCap, Award, Sparkles, Briefcase,
-  Send, Globe, Lightbulb, Rocket, BookOpen, Target, Heart, Zap,
+  Send, Globe, Lightbulb, Rocket, BookOpen, Target, Heart, Zap, Github,
 } from "lucide-react";
-import profileImg from "@/assets/profile.jpg";
+import profileAsset from "@/assets/ribka-portrait.png.asset.json";
+const profileImg = profileAsset.url;
 import graduationKg from "@/assets/graduation-kg.png.asset.json";
 import certSpaceScience from "@/assets/cert-space-science.png.asset.json";
 import certJusssRank from "@/assets/cert-jusss-rank.png.asset.json";
@@ -210,7 +211,7 @@ function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--eth-green)] opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--eth-green)]" />
             </span>
-            Available for internships & freelance
+            Welcome to my corner of the web ✨
           </motion.div>
 
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
@@ -259,13 +260,12 @@ function Hero() {
             <span className="text-xs uppercase tracking-widest text-muted-foreground">Connect</span>
             <div className="h-px flex-1 max-w-12 bg-border" />
             {[
-              { icon: Github, href: "#", label: "GitHub" },
-              { icon: Linkedin, href: "#", label: "LinkedIn" },
-              { icon: Twitter, href: "#", label: "Twitter" },
-              { icon: Instagram, href: "#", label: "Instagram" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/ribka-begashaw-lissanu-820439376", label: "LinkedIn" },
+              { icon: Instagram, href: "https://instagram.com/pistavros12", label: "Instagram" },
+              { icon: Send, href: "https://t.me/genesis2415", label: "Telegram" },
               { icon: Mail, href: "mailto:pistavrosbegashaw@gmail.com", label: "Email" },
             ].map(({ icon: Icon, href, label }) => (
-              <a key={label} href={href} aria-label={label}
+              <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}
                 className="grid h-10 w-10 place-items-center rounded-xl border border-border bg-surface-elevated hover:bg-accent/20 hover:border-[var(--eth-green)] hover:-translate-y-0.5 transition-all">
                 <Icon className="h-4 w-4" />
               </a>
@@ -343,12 +343,12 @@ function About() {
   const highlights = [
     { icon: GraduationCap, label: "Freshman at", value: "Shaggar Institute of Technology" },
     { icon: MapPin, label: "Based in", value: "Addis Ababa, Ethiopia" },
-    { icon: Briefcase, label: "Open to", value: "Internships & Freelance" },
-    { icon: Heart, label: "Passions", value: "Community · Maths · Code" },
+    { icon: Heart, label: "Faith", value: "Ethiopian Orthodox Tewahedo" },
+    { icon: Sparkles, label: "Plays", value: "Begena (ብጌና)" },
   ];
   return (
-    <Section id="about" eyebrow="About Me"
-      title={<>Crafting at the intersection of <span className="text-gradient">creativity and code</span>.</>}>
+    <Section id="about" eyebrow="Meet Ribka"
+      title={<>A student crafting at the intersection of <span className="text-gradient">creativity and code</span>.</>}>
       <div className="grid lg:grid-cols-[1.3fr_1fr] gap-10 items-start">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           transition={{ duration: 0.6 }} className="space-y-5 text-muted-foreground leading-relaxed text-lg">
@@ -365,8 +365,14 @@ function About() {
             real-world impact</span>. Maths has been the thread connecting it all — it sharpens how I solve problems
             and design systems.
           </p>
+          <p>
+            Beyond the screen, I'm a proud <span className="text-foreground font-medium">Ethiopian Orthodox Tewahedo
+            Christian</span>, and I find peace and inspiration in playing the{" "}
+            <span className="text-foreground font-medium">Begena (ብጌና)</span> — the sacred ten-stringed lyre of Ethiopia
+            often called "the harp of King David."
+          </p>
           <div className="flex flex-wrap gap-2 pt-2">
-            {["Community-Driven", "Team Player", "Maths Lover", "Problem Solver", "Lifelong Learner", "Creative Thinker"].map((t) => (
+            {["Community-Driven", "Team Player", "Maths Lover", "Begena Player", "Orthodox Christian", "Lifelong Learner"].map((t) => (
               <span key={t} className="rounded-full glass px-3 py-1.5 text-sm font-medium">
                 {t}
               </span>
@@ -398,7 +404,7 @@ function Education() {
     {
       institution: "Shaggar Institute of Technology (SIT)",
       degree: "BSc — Freshman",
-      duration: "Oct 2025 — Jun 2030",
+      duration: "Oct 2025 — Present",
       desc: "Pursuing a Bachelor's degree in technology, building foundations across software development, mathematics and creative problem solving.",
     },
     {
@@ -936,8 +942,13 @@ function Contact() {
           <div className="rounded-2xl glass p-6 shadow-card">
             <div className="text-xs uppercase tracking-wider text-muted-foreground">Follow</div>
             <div className="mt-3 flex gap-2">
-              {[Github, Linkedin, Twitter, Instagram].map((Icon, i) => (
-                <a key={i} href="#" className="grid h-10 w-10 place-items-center rounded-xl border border-border hover:eth-stripe hover:text-white hover:border-transparent transition-all">
+              {[
+                { Icon: Linkedin, href: "https://www.linkedin.com/in/ribka-begashaw-lissanu-820439376" },
+                { Icon: Instagram, href: "https://instagram.com/pistavros12" },
+                { Icon: Send, href: "https://t.me/genesis2415" },
+                { Icon: Mail, href: "mailto:pistavrosbegashaw@gmail.com" },
+              ].map(({ Icon, href }, i) => (
+                <a key={i} href={href} target="_blank" rel="noreferrer" className="grid h-10 w-10 place-items-center rounded-xl border border-border hover:eth-stripe hover:text-white hover:border-transparent transition-all">
                   <Icon className="h-4 w-4" />
                 </a>
               ))}
@@ -1008,8 +1019,13 @@ function Footer() {
               pistavrosbegashaw@gmail.com
             </a>
             <div className="mt-4 flex gap-2">
-              {[Github, Linkedin, Twitter, Instagram, Mail].map((Icon, i) => (
-                <a key={i} href="#" className="grid h-9 w-9 place-items-center rounded-lg border border-border hover:eth-stripe hover:text-white hover:border-transparent transition-all">
+              {[
+                { Icon: Linkedin, href: "https://www.linkedin.com/in/ribka-begashaw-lissanu-820439376" },
+                { Icon: Instagram, href: "https://instagram.com/pistavros12" },
+                { Icon: Send, href: "https://t.me/genesis2415" },
+                { Icon: Mail, href: "mailto:pistavrosbegashaw@gmail.com" },
+              ].map(({ Icon, href }, i) => (
+                <a key={i} href={href} target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-lg border border-border hover:eth-stripe hover:text-white hover:border-transparent transition-all">
                   <Icon className="h-4 w-4" />
                 </a>
               ))}
