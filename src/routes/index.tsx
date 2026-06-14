@@ -2,10 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
-  Mail, MapPin, Github, Linkedin, Twitter, Instagram, Download,
+  Mail, MapPin, Linkedin, Instagram, Download,
   ArrowRight, ArrowUp, Moon, Sun, Menu, X, ExternalLink,
   Palette, Bot, Code2, GraduationCap, Award, Sparkles, Briefcase,
-  Send, Globe, Lightbulb, Rocket, BookOpen, Target, Heart, Zap,
+  Send, Globe, Lightbulb, Rocket, BookOpen, Target, Heart, Zap, Github,
 } from "lucide-react";
 import profileAsset from "@/assets/ribka-portrait.png.asset.json";
 const profileImg = profileAsset.url;
