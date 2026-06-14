@@ -404,7 +404,7 @@ function Education() {
     {
       institution: "Shaggar Institute of Technology (SIT)",
       degree: "BSc — Freshman",
-      duration: "Oct 2025 — Jun 2030",
+      duration: "Oct 2025 — Present",
       desc: "Pursuing a Bachelor's degree in technology, building foundations across software development, mathematics and creative problem solving.",
     },
     {
