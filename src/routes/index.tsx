@@ -260,13 +260,12 @@ function Hero() {
             <span className="text-xs uppercase tracking-widest text-muted-foreground">Connect</span>
             <div className="h-px flex-1 max-w-12 bg-border" />
             {[
-              { icon: Github, href: "#", label: "GitHub" },
-              { icon: Linkedin, href: "#", label: "LinkedIn" },
-              { icon: Twitter, href: "#", label: "Twitter" },
-              { icon: Instagram, href: "#", label: "Instagram" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/ribka-begashaw-lissanu-820439376", label: "LinkedIn" },
+              { icon: Instagram, href: "https://instagram.com/pistavros12", label: "Instagram" },
+              { icon: Send, href: "https://t.me/genesis2415", label: "Telegram" },
               { icon: Mail, href: "mailto:pistavrosbegashaw@gmail.com", label: "Email" },
             ].map(({ icon: Icon, href, label }) => (
-              <a key={label} href={href} aria-label={label}
+              <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}
                 className="grid h-10 w-10 place-items-center rounded-xl border border-border bg-surface-elevated hover:bg-accent/20 hover:border-[var(--eth-green)] hover:-translate-y-0.5 transition-all">
                 <Icon className="h-4 w-4" />
               </a>
