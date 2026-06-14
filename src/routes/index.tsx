@@ -121,7 +121,7 @@ function Navbar() {
         <div className={`flex items-center justify-between rounded-2xl px-4 py-3 transition-all ${scrolled ? "glass shadow-card" : ""}`}>
           <a href="#top" className="group flex items-center gap-2 font-display font-bold text-lg">
             <span className="grid h-9 w-9 place-items-center rounded-xl eth-stripe text-white shadow-glow transition-transform group-hover:scale-110">
-              R
+              &nbsp;R
             </span>
             <span className="hidden sm:inline">n</span>
           </a>
@@ -211,7 +211,7 @@ function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--eth-green)] opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--eth-green)]" />
             </span>
-            Welcome to my corner of the web ✨
+            Welcome to my corner of the web&nbsp;
           </motion.div>
 
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
