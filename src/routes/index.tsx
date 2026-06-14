@@ -211,7 +211,7 @@ function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--eth-green)] opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--eth-green)]" />
             </span>
-            Available for internships & freelance
+            Welcome to my corner of the web ✨
           </motion.div>
 
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
