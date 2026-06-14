@@ -125,7 +125,7 @@ function Navbar() {
             <span className="grid h-9 w-9 place-items-center rounded-xl eth-stripe text-white shadow-glow transition-transform group-hover:scale-110">
               &nbsp;R
             </span>
-            <span className="hidden sm:inline">n</span>
+            <span className="hidden sm:inline">{"\n"}</span>
           </a>
           <nav className="hidden md:flex items-center gap-1">
             {NAV.map((n) => (
