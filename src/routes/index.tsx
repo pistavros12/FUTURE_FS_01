@@ -1019,8 +1019,13 @@ function Footer() {
               pistavrosbegashaw@gmail.com
             </a>
             <div className="mt-4 flex gap-2">
-              {[Github, Linkedin, Twitter, Instagram, Mail].map((Icon, i) => (
-                <a key={i} href="#" className="grid h-9 w-9 place-items-center rounded-lg border border-border hover:eth-stripe hover:text-white hover:border-transparent transition-all">
+              {[
+                { Icon: Linkedin, href: "https://www.linkedin.com/in/ribka-begashaw-lissanu-820439376" },
+                { Icon: Instagram, href: "https://instagram.com/pistavros12" },
+                { Icon: Send, href: "https://t.me/genesis2415" },
+                { Icon: Mail, href: "mailto:pistavrosbegashaw@gmail.com" },
+              ].map(({ Icon, href }, i) => (
+                <a key={i} href={href} target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-lg border border-border hover:eth-stripe hover:text-white hover:border-transparent transition-all">
                   <Icon className="h-4 w-4" />
                 </a>
               ))}
