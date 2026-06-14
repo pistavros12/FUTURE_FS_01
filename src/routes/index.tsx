@@ -7,7 +7,7 @@ import {
   Palette, Bot, Code2, GraduationCap, Award, Sparkles, Briefcase,
   Send, Globe, Lightbulb, Rocket, BookOpen, Target, Heart, Zap, Github,
 } from "lucide-react";
-import profileAsset from "@/assets/ribka-portrait.png.asset.json";
+import profileAsset from "@/assets/ribka-portrait-v2.png.asset.json";
 const profileImg = profileAsset.url;
 import graduationKg from "@/assets/graduation-kg.png.asset.json";
 import certSpaceScience from "@/assets/cert-space-science.png.asset.json";
@@ -19,6 +19,8 @@ import { ThemeProvider, useTheme } from "@/components/theme-provider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/")({
   head: () => ({
