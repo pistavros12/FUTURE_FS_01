@@ -344,7 +344,7 @@ function About() {
     { icon: GraduationCap, label: "Freshman at", value: "Shaggar Institute of Technology" },
     { icon: MapPin, label: "Based in", value: "Addis Ababa, Ethiopia" },
     { icon: Heart, label: "Faith", value: "Ethiopian Orthodox Tewahedo" },
-    { icon: Sparkles, label: "Plays", value: "Begena (ብጌና)" },
+    { icon: Sparkles, label: "Plays", value: "Begena ( በገና)" },
   ];
   return (
     <Section id="about" eyebrow="Meet Ribka"
@@ -368,7 +368,7 @@ function About() {
           <p>
             Beyond the screen, I'm a proud <span className="text-foreground font-medium">Ethiopian Orthodox Tewahedo
             Christian</span>, and I find peace and inspiration in playing the{" "}
-            <span className="text-foreground font-medium">Begena (ብጌና)</span> — the sacred ten-stringed lyre of Ethiopia
+            <span className="text-foreground font-medium">Begena ( በገና)</span> — the sacred ten-stringed lyre of Ethiopia
             often called "the harp of King David."
           </p>
           <div className="flex flex-wrap gap-2 pt-2">
