@@ -343,12 +343,12 @@ function About() {
   const highlights = [
     { icon: GraduationCap, label: "Freshman at", value: "Shaggar Institute of Technology" },
     { icon: MapPin, label: "Based in", value: "Addis Ababa, Ethiopia" },
-    { icon: Briefcase, label: "Open to", value: "Internships & Freelance" },
-    { icon: Heart, label: "Passions", value: "Community · Maths · Code" },
+    { icon: Heart, label: "Faith", value: "Ethiopian Orthodox Tewahedo" },
+    { icon: Sparkles, label: "Plays", value: "Begena (ብጌና)" },
   ];
   return (
-    <Section id="about" eyebrow="About Me"
-      title={<>Crafting at the intersection of <span className="text-gradient">creativity and code</span>.</>}>
+    <Section id="about" eyebrow="Meet Ribka"
+      title={<>A student crafting at the intersection of <span className="text-gradient">creativity and code</span>.</>}>
       <div className="grid lg:grid-cols-[1.3fr_1fr] gap-10 items-start">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           transition={{ duration: 0.6 }} className="space-y-5 text-muted-foreground leading-relaxed text-lg">
@@ -365,8 +365,14 @@ function About() {
             real-world impact</span>. Maths has been the thread connecting it all — it sharpens how I solve problems
             and design systems.
           </p>
+          <p>
+            Beyond the screen, I'm a proud <span className="text-foreground font-medium">Ethiopian Orthodox Tewahedo
+            Christian</span>, and I find peace and inspiration in playing the{" "}
+            <span className="text-foreground font-medium">Begena (ብጌና)</span> — the sacred ten-stringed lyre of Ethiopia
+            often called "the harp of King David."
+          </p>
           <div className="flex flex-wrap gap-2 pt-2">
-            {["Community-Driven", "Team Player", "Maths Lover", "Problem Solver", "Lifelong Learner", "Creative Thinker"].map((t) => (
+            {["Community-Driven", "Team Player", "Maths Lover", "Begena Player", "Orthodox Christian", "Lifelong Learner"].map((t) => (
               <span key={t} className="rounded-full glass px-3 py-1.5 text-sm font-medium">
                 {t}
               </span>
