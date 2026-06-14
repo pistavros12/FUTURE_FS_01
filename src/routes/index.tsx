@@ -7,7 +7,7 @@ import {
   Palette, Bot, Code2, GraduationCap, Award, Sparkles, Briefcase,
   Send, Globe, Lightbulb, Rocket, BookOpen, Target, Heart, Zap, Github,
 } from "lucide-react";
-import profileAsset from "@/assets/ribka-portrait.png.asset.json";
+import profileAsset from "@/assets/ribka-portrait-v2.png.asset.json";
 const profileImg = profileAsset.url;
 import graduationKg from "@/assets/graduation-kg.png.asset.json";
 import certSpaceScience from "@/assets/cert-space-science.png.asset.json";
@@ -19,6 +19,8 @@ import { ThemeProvider, useTheme } from "@/components/theme-provider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -276,10 +278,10 @@ function Hero() {
         <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }}
           className="relative mx-auto lg:mx-0">
           <div className="absolute -inset-6 eth-stripe opacity-30 blur-2xl rounded-full" />
-          <div className="relative h-80 w-80 sm:h-96 sm:w-96 rounded-[2rem] overflow-hidden glass shadow-elevated">
+          <div className="relative h-72 w-72 sm:h-96 sm:w-96 rounded-[2rem] overflow-hidden glass shadow-elevated">
             <img src={profileImg} alt="Ribka Begashaw Lissanu portrait"
-              width={768} height={768}
-              className="h-full w-full object-cover" />
+              width={768} height={1024}
+              className="h-full w-full object-cover object-[center_30%]" />
             <div className="absolute inset-0 ring-1 ring-inset ring-foreground/10 rounded-[2rem]" />
           </div>
           <motion.div animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 4 }}
@@ -915,7 +917,37 @@ function Achievements() {
 
 /* ---------- Contact ---------- */
 function Contact() {
-  const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const name = form.name.trim();
+    const email = form.email.trim();
+    const subject = form.subject.trim();
+    const message = form.message.trim();
+    if (!name || !email || !subject || !message) {
+      toast.error("Please fill in all fields.");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+    setLoading(true);
+    const { error } = await supabase
+      .from("contact_messages")
+      .insert({ name, email, subject, message });
+    setLoading(false);
+    if (error) {
+      console.error(error);
+      toast.error("Couldn't send your message. Please try again.");
+      return;
+    }
+    toast.success("Thank you! Your message has been sent.");
+    setForm({ name: "", email: "", subject: "", message: "" });
+  };
+
   return (
     <Section id="contact" eyebrow="Get in touch" title={<>Let's build <span className="text-gradient">something</span> together.</>}
       subtitle="I'm always interested in internships, collaborative projects, and connecting with fellow developers, designers and technology enthusiasts.">
@@ -957,28 +989,37 @@ function Contact() {
         </motion.div>
 
         <motion.form initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-          onSubmit={(e) => { e.preventDefault(); setSent(true); setTimeout(() => setSent(false), 3500); }}
+          onSubmit={onSubmit}
           className="rounded-2xl glass p-6 sm:p-8 shadow-card space-y-4">
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
               <label htmlFor="name" className="text-sm font-medium">Full Name</label>
-              <Input id="name" required maxLength={100} className="mt-1.5 bg-background/50" placeholder="Your name" />
+              <Input id="name" required maxLength={100} value={form.name}
+                onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+                className="mt-1.5 bg-background/50" placeholder="Your name" />
             </div>
             <div>
               <label htmlFor="email" className="text-sm font-medium">Email Address</label>
-              <Input id="email" type="email" required maxLength={255} className="mt-1.5 bg-background/50" placeholder="you@example.com" />
+              <Input id="email" type="email" required maxLength={255} value={form.email}
+                onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
+                className="mt-1.5 bg-background/50" placeholder="you@example.com" />
             </div>
           </div>
           <div>
             <label htmlFor="subject" className="text-sm font-medium">Subject</label>
-            <Input id="subject" required maxLength={150} className="mt-1.5 bg-background/50" placeholder="What's this about?" />
+            <Input id="subject" required maxLength={150} value={form.subject}
+              onChange={(e) => setForm((f) => ({ ...f, subject: e.target.value }))}
+              className="mt-1.5 bg-background/50" placeholder="What's this about?" />
           </div>
           <div>
             <label htmlFor="message" className="text-sm font-medium">Message</label>
-            <Textarea id="message" required maxLength={1500} rows={5} className="mt-1.5 bg-background/50" placeholder="Tell me about your project or opportunity..." />
+            <Textarea id="message" required maxLength={1500} rows={5} value={form.message}
+              onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
+              className="mt-1.5 bg-background/50" placeholder="Tell me about your project or opportunity..." />
           </div>
-          <Button type="submit" size="lg" className="w-full rounded-xl bg-foreground text-background hover:bg-foreground/90 group">
-            {sent ? <>Sent — Thank you! <Sparkles /></> : <>Send Message <Send className="transition-transform group-hover:translate-x-1" /></>}
+          <Button type="submit" size="lg" disabled={loading}
+            className="w-full rounded-xl bg-foreground text-background hover:bg-foreground/90 group">
+            {loading ? <>Sending… <Sparkles className="animate-pulse" /></> : <>Send Message <Send className="transition-transform group-hover:translate-x-1" /></>}
           </Button>
         </motion.form>
       </div>
