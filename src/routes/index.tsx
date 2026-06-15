@@ -40,7 +40,7 @@ export const Route = createFileRoute("/")({
         name: "Ribka Begashaw Lissanu",
         jobTitle: "Graphics Designer, Bot Developer, Web Developer",
         address: { "@type": "PostalAddress", addressLocality: "Addis Ababa", addressCountry: "ET" },
-        email: "pistavrosbegashaw@gmail.com",
+        email: "ribkabegashaw179a@gmail.com",
         alumniOf: "Shaggar Institute of Technology",
       }),
     }],
@@ -263,7 +263,7 @@ function Hero() {
               { icon: Linkedin, href: "https://www.linkedin.com/in/ribka-begashaw-lissanu-820439376", label: "LinkedIn" },
               { icon: Instagram, href: "https://instagram.com/pistavros12", label: "Instagram" },
               { icon: Send, href: "https://t.me/genesis2415", label: "Telegram" },
-              { icon: Mail, href: "mailto:pistavrosbegashaw@gmail.com", label: "Email" },
+              { icon: Mail, href: "mailto:ribkabegashaw179a@gmail.com", label: "Email" },
             ].map(({ icon: Icon, href, label }) => (
               <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}
                 className="grid h-10 w-10 place-items-center rounded-xl border border-border bg-surface-elevated hover:bg-accent/20 hover:border-[var(--eth-green)] hover:-translate-y-0.5 transition-all">
@@ -895,9 +895,9 @@ function Contact() {
               <Mail className="h-5 w-5" />
             </span>
             <div className="mt-4 text-xs uppercase tracking-wider text-muted-foreground">Email</div>
-            <a href="mailto:pistavrosbegashaw@gmail.com"
+            <a href="mailto:ribkabegashaw179a@gmail.com"
               className="block mt-1 font-semibold hover:text-[var(--eth-green)] transition-colors break-all">
-              pistavrosbegashaw@gmail.com
+              ribkabegashaw179a@gmail.com
             </a>
           </div>
           <div className="rounded-2xl glass p-6 shadow-card">
@@ -914,7 +914,7 @@ function Contact() {
                 { Icon: Linkedin, href: "https://www.linkedin.com/in/ribka-begashaw-lissanu-820439376" },
                 { Icon: Instagram, href: "https://instagram.com/pistavros12" },
                 { Icon: Send, href: "https://t.me/genesis2415" },
-                { Icon: Mail, href: "mailto:pistavrosbegashaw@gmail.com" },
+                { Icon: Mail, href: "mailto:ribkabegashaw179a@gmail.com" },
               ].map(({ Icon, href }, i) => (
                 <a key={i} href={href} target="_blank" rel="noreferrer" className="grid h-10 w-10 place-items-center rounded-sm border border-border hover:eth-stripe hover:text-white hover:border-transparent transition-all">
                   <Icon className="h-4 w-4" />
@@ -988,15 +988,15 @@ function Footer() {
           </div>
           <div>
             <h4 className="font-semibold mb-3">Get in touch</h4>
-            <a href="mailto:pistavrosbegashaw@gmail.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors break-all">
-              pistavrosbegashaw@gmail.com
+            <a href="mailto:ribkabegashaw179a@gmail.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors break-all">
+              ribkabegashaw179a@gmail.com
             </a>
             <div className="mt-4 flex gap-2">
               {[
                 { Icon: Linkedin, href: "https://www.linkedin.com/in/ribka-begashaw-lissanu-820439376" },
                 { Icon: Instagram, href: "https://instagram.com/pistavros12" },
                 { Icon: Send, href: "https://t.me/genesis2415" },
-                { Icon: Mail, href: "mailto:pistavrosbegashaw@gmail.com" },
+                { Icon: Mail, href: "mailto:ribkabegashaw179a@gmail.com" },
               ].map(({ Icon, href }, i) => (
                 <a key={i} href={href} target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-lg border border-border hover:eth-stripe hover:text-white hover:border-transparent transition-all">
                   <Icon className="h-4 w-4" />
