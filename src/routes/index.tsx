@@ -52,7 +52,7 @@ export const Route = createFileRoute("/")({
   ),
 });
 
-const ROLES = ["Graphics Designer", "Bot Developer", "Beginner Web Developer"];
+const ROLES = ["Graphic Designer & Developer", "Bot Developer", "Web Developer"];
 const NAV = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
