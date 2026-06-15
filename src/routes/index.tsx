@@ -414,7 +414,7 @@ function Education() {
     },
   ];
   return (
-    <Section id="education" eyebrow="Education" title="Academic journey" subtitle="From kindergarten in Jimma to a BSc in Addis Ababa — the milestones shaping my path in technology.">
+    <Section id="education" eyebrow="Education" title="Academic journey" subtitle="The milestones shaping my path in technology.">
       <div className="relative pl-6 sm:pl-10">
         <div className="absolute left-2 sm:left-4 top-0 bottom-0 w-px eth-stripe opacity-40" />
         <div className="space-y-8">
