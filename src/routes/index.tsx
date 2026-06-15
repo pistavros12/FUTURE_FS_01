@@ -362,8 +362,7 @@ function About() {
             My journey blends graphic design, bot development, and web development. Whether I'm mentoring Grade 12
             students preparing for the ESSLCE, building bots for my church service, or designing meaningful user
             experiences, my goal is the same: <span className="text-foreground font-medium">help others and create
-            real-world impact</span>. Maths has been the thread connecting it all — it sharpens how I solve problems
-            and design systems.
+            real-world impact</span>. Mathematics is the thread connecting it all—sharpening how I solve complex problems and design intelligent systems.
           </p>
           <p>
             Beyond the screen, I'm a proud <span className="text-foreground font-medium">Ethiopian Orthodox Tewahedo
