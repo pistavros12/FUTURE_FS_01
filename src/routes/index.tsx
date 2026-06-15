@@ -19,8 +19,6 @@ import { ThemeProvider, useTheme } from "@/components/theme-provider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { supabase } from "@/integrations/supabase/client";
-import { toast } from "sonner";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -917,37 +915,6 @@ function Achievements() {
 
 /* ---------- Contact ---------- */
 function Contact() {
-  const [loading, setLoading] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
-
-  const onSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const name = form.name.trim();
-    const email = form.email.trim();
-    const subject = form.subject.trim();
-    const message = form.message.trim();
-    if (!name || !email || !subject || !message) {
-      toast.error("Please fill in all fields.");
-      return;
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      toast.error("Please enter a valid email address.");
-      return;
-    }
-    setLoading(true);
-    const { error } = await supabase
-      .from("contact_messages")
-      .insert({ name, email, subject, message });
-    setLoading(false);
-    if (error) {
-      console.error(error);
-      toast.error("Couldn't send your message. Please try again.");
-      return;
-    }
-    toast.success("Thank you! Your message has been sent.");
-    setForm({ name: "", email: "", subject: "", message: "" });
-  };
-
   return (
     <Section id="contact" eyebrow="Get in touch" title={<>Let's build <span className="text-gradient">something</span> together.</>}
       subtitle="I'm always interested in internships, collaborative projects, and connecting with fellow developers, designers and technology enthusiasts.">
@@ -980,7 +947,7 @@ function Contact() {
                 { Icon: Send, href: "https://t.me/genesis2415" },
                 { Icon: Mail, href: "mailto:pistavrosbegashaw@gmail.com" },
               ].map(({ Icon, href }, i) => (
-                <a key={i} href={href} target="_blank" rel="noreferrer" className="grid h-10 w-10 place-items-center rounded-xl border border-border hover:eth-stripe hover:text-white hover:border-transparent transition-all">
+                <a key={i} href={href} target="_blank" rel="noreferrer" className="grid h-10 w-10 place-items-center rounded-sm border border-border hover:eth-stripe hover:text-white hover:border-transparent transition-all">
                   <Icon className="h-4 w-4" />
                 </a>
               ))}
@@ -988,38 +955,34 @@ function Contact() {
           </div>
         </motion.div>
 
-        <motion.form initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-          onSubmit={onSubmit}
-          className="rounded-2xl glass p-6 sm:p-8 shadow-card space-y-4">
+        <motion.form
+          method="POST"
+          action="https://formspree.io/f/mvzndjob"
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="rounded-2xl glass p-6 sm:p-8 shadow-card space-y-4"
+        >
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
               <label htmlFor="name" className="text-sm font-medium">Full Name</label>
-              <Input id="name" required maxLength={100} value={form.name}
-                onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-                className="mt-1.5 bg-background/50" placeholder="Your name" />
+              <Input id="name" name="name" required maxLength={100} className="mt-1.5 bg-background/50" placeholder="Your name" />
             </div>
             <div>
               <label htmlFor="email" className="text-sm font-medium">Email Address</label>
-              <Input id="email" type="email" required maxLength={255} value={form.email}
-                onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
-                className="mt-1.5 bg-background/50" placeholder="you@example.com" />
+              <Input id="email" name="email" type="email" required maxLength={255} className="mt-1.5 bg-background/50" placeholder="you@example.com" />
             </div>
           </div>
           <div>
             <label htmlFor="subject" className="text-sm font-medium">Subject</label>
-            <Input id="subject" required maxLength={150} value={form.subject}
-              onChange={(e) => setForm((f) => ({ ...f, subject: e.target.value }))}
-              className="mt-1.5 bg-background/50" placeholder="What's this about?" />
+            <Input id="subject" name="subject" required maxLength={150} className="mt-1.5 bg-background/50" placeholder="What's this about?" />
           </div>
           <div>
             <label htmlFor="message" className="text-sm font-medium">Message</label>
-            <Textarea id="message" required maxLength={1500} rows={5} value={form.message}
-              onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
-              className="mt-1.5 bg-background/50" placeholder="Tell me about your project or opportunity..." />
+            <Textarea id="message" name="message" required maxLength={1500} rows={5} className="mt-1.5 bg-background/50" placeholder="Tell me about your project or opportunity..." />
           </div>
-          <Button type="submit" size="lg" disabled={loading}
-            className="w-full rounded-xl bg-foreground text-background hover:bg-foreground/90 group">
-            {loading ? <>Sending… <Sparkles className="animate-pulse" /></> : <>Send Message <Send className="transition-transform group-hover:translate-x-1" /></>}
+          <Button type="submit" size="lg" className="w-full rounded-xl bg-foreground text-background hover:bg-foreground/90 group">
+            Send Message <Send className="transition-transform group-hover:translate-x-1" />
           </Button>
         </motion.form>
       </div>
