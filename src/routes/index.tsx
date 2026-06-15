@@ -412,31 +412,6 @@ function Education() {
       duration: "2022 — 2025",
       desc: "Completed ESSLCE with 551/600, joining one of Ethiopia's most competitive secondary schools and sharpening academic and analytical skills.",
     },
-    {
-      institution: "Felege Tibeb Primary School",
-      degree: "Grade 5 — 8 · Jimma City, Oromia",
-      duration: "Completed",
-      desc: "Earned a Ministry average of 94.05, ranking among top students and developing a lasting love for mathematics.",
-    },
-    {
-      institution: "HoraHayu School",
-      degree: "Grade 2 — 4 · Dedo, Jimma, Oromia",
-      duration: "Completed",
-      desc: "Continued elementary education in a community-rooted school environment.",
-    },
-    {
-      institution: "Dedo Elementary School",
-      degree: "Grade 1 · Dedo, Jimma",
-      duration: "Completed",
-      desc: "Began formal primary education and the foundation of my academic journey.",
-    },
-    {
-      institution: "ETN Kindergarten",
-      degree: "Kindergarten",
-      duration: "Early years",
-      desc: "Where it all began — my first graduation at the age of 6.",
-      image: graduationKg.url,
-    },
   ];
   return (
     <Section id="education" eyebrow="Education" title="Academic journey" subtitle="From kindergarten in Jimma to a BSc in Addis Ababa — the milestones shaping my path in technology.">
