@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import profileAsset from "@/assets/ribka-portrait-v2.png.asset.json";
 const profileImg = profileAsset.url;
-import graduationKg from "@/assets/graduation-kg.png.asset.json";
+
 import certSpaceScience from "@/assets/cert-space-science.png.asset.json";
 import certJusssRank from "@/assets/cert-jusss-rank.png.asset.json";
 import certWomensClub from "@/assets/cert-womens-club.png.asset.json";
@@ -40,7 +40,7 @@ export const Route = createFileRoute("/")({
         name: "Ribka Begashaw Lissanu",
         jobTitle: "Graphics Designer, Bot Developer, Web Developer",
         address: { "@type": "PostalAddress", addressLocality: "Addis Ababa", addressCountry: "ET" },
-        email: "pistavrosbegashaw@gmail.com",
+        email: "ribkabegashaw179a@gmail.com",
         alumniOf: "Shaggar Institute of Technology",
       }),
     }],
@@ -52,7 +52,7 @@ export const Route = createFileRoute("/")({
   ),
 });
 
-const ROLES = ["Graphics Designer", "Bot Developer", "Beginner Web Developer"];
+const ROLES = ["Graphic Designer & Developer", "Bot Developer", "Web Developer"];
 const NAV = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
@@ -263,7 +263,7 @@ function Hero() {
               { icon: Linkedin, href: "https://www.linkedin.com/in/ribka-begashaw-lissanu-820439376", label: "LinkedIn" },
               { icon: Instagram, href: "https://instagram.com/pistavros12", label: "Instagram" },
               { icon: Send, href: "https://t.me/genesis2415", label: "Telegram" },
-              { icon: Mail, href: "mailto:pistavrosbegashaw@gmail.com", label: "Email" },
+              { icon: Mail, href: "mailto:ribkabegashaw179a@gmail.com", label: "Email" },
             ].map(({ icon: Icon, href, label }) => (
               <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}
                 className="grid h-10 w-10 place-items-center rounded-xl border border-border bg-surface-elevated hover:bg-accent/20 hover:border-[var(--eth-green)] hover:-translate-y-0.5 transition-all">
@@ -362,8 +362,7 @@ function About() {
             My journey blends graphic design, bot development, and web development. Whether I'm mentoring Grade 12
             students preparing for the ESSLCE, building bots for my church service, or designing meaningful user
             experiences, my goal is the same: <span className="text-foreground font-medium">help others and create
-            real-world impact</span>. Maths has been the thread connecting it all — it sharpens how I solve problems
-            and design systems.
+            real-world impact</span>. Mathematics is the thread connecting it all—sharpening how I solve complex problems and design intelligent systems.
           </p>
           <p>
             Beyond the screen, I'm a proud <span className="text-foreground font-medium">Ethiopian Orthodox Tewahedo
@@ -372,7 +371,7 @@ function About() {
             often called "the harp of King David."
           </p>
           <div className="flex flex-wrap gap-2 pt-2">
-            {["Community-Driven", "Team Player", "Maths Lover", "Begena Player", "Orthodox Christian", "Lifelong Learner"].map((t) => (
+            {["Community-Driven", "Team Player", "Math Lover", "Begena Player", "Orthodox Christian", "Lifelong Learner"].map((t) => (
               <span key={t} className="rounded-full glass px-3 py-1.5 text-sm font-medium">
                 {t}
               </span>
@@ -413,34 +412,9 @@ function Education() {
       duration: "2022 — 2025",
       desc: "Completed ESSLCE with 551/600, joining one of Ethiopia's most competitive secondary schools and sharpening academic and analytical skills.",
     },
-    {
-      institution: "Felege Tibeb Primary School",
-      degree: "Grade 5 — 8 · Jimma City, Oromia",
-      duration: "Completed",
-      desc: "Earned a Ministry average of 94.05, ranking among top students and developing a lasting love for mathematics.",
-    },
-    {
-      institution: "HoraHayu School",
-      degree: "Grade 2 — 4 · Dedo, Jimma, Oromia",
-      duration: "Completed",
-      desc: "Continued elementary education in a community-rooted school environment.",
-    },
-    {
-      institution: "Dedo Elementary School",
-      degree: "Grade 1 · Dedo, Jimma",
-      duration: "Completed",
-      desc: "Began formal primary education and the foundation of my academic journey.",
-    },
-    {
-      institution: "ETN Kindergarten",
-      degree: "Kindergarten",
-      duration: "Early years",
-      desc: "Where it all began — my first graduation at the age of 6.",
-      image: graduationKg.url,
-    },
   ];
   return (
-    <Section id="education" eyebrow="Education" title="Academic journey" subtitle="From kindergarten in Jimma to a BSc in Addis Ababa — the milestones shaping my path in technology.">
+    <Section id="education" eyebrow="Education" title="Academic journey" subtitle="The milestones shaping my path in technology.">
       <div className="relative pl-6 sm:pl-10">
         <div className="absolute left-2 sm:left-4 top-0 bottom-0 w-px eth-stripe opacity-40" />
         <div className="space-y-8">
@@ -487,31 +461,20 @@ function Skills() {
   const groups = [
     {
       title: "Design", icon: Palette, color: "var(--eth-yellow)",
-      skills: [
-        { name: "Graphic Design", level: 85 },
-        { name: "Visual Communication", level: 80 },
-        { name: "Creative Thinking", level: 90 },
-      ],
+      skills: ["Graphic Design", "Visual Communication", "Creative Thinking", "UI/UX Design"],
     },
     {
       title: "Programming", icon: Code2, color: "var(--eth-green)",
-      skills: [
-        { name: "HTML", level: 85 },
-        { name: "CSS", level: 80 },
-        { name: "JavaScript", level: 70 },
-      ],
+      skills: ["HTML", "CSS", "JavaScript", "React", "Node.js"],
     },
     {
       title: "Development", icon: Bot, color: "var(--eth-red)",
-      skills: [
-        { name: "Bot Development", level: 75 },
-        { name: "Front-End Development", level: 70 },
-        { name: "Problem Solving", level: 85 },
-      ],
+      skills: ["Bot Development", "Front-End Development", "Problem Solving", "Web Development"],
     },
   ];
-  const tools = ["Git", "GitHub", "VS Code", "Figma"];
-  const soft = ["Communication", "Teamwork", "Continuous Learning", "Adaptability"];
+  const tools = ["Git", "GitHub", "VS Code", "Figma", "Vite", "Bun"];
+  const soft = ["Communication", "Teamwork", "Continuous Learning", "Adaptability", "Leadership"];
+  const [activeSkill, setActiveSkill] = useState<string | null>(null);
 
   return (
     <Section id="skills" eyebrow="Skills" title="Tools of the craft"
@@ -521,27 +484,29 @@ function Skills() {
           <motion.div key={g.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ delay: gi * 0.1, duration: 0.6 }}
             className="rounded-2xl glass p-6 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mb-5">
               <span className="grid h-11 w-11 place-items-center rounded-xl"
                 style={{ background: `color-mix(in oklch, ${g.color} 18%, transparent)` }}>
                 <g.icon className="h-5 w-5" style={{ color: g.color }} />
               </span>
               <h3 className="font-display text-lg font-bold">{g.title}</h3>
             </div>
-            <div className="mt-5 space-y-4">
-              {g.skills.map((s, i) => (
-                <div key={s.name}>
-                  <div className="flex justify-between text-sm mb-1.5">
-                    <span className="font-medium">{s.name}</span>
-                    <span className="text-muted-foreground">{s.level}%</span>
-                  </div>
-                  <div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
-                    <motion.div initial={{ width: 0 }} whileInView={{ width: `${s.level}%` }}
-                      viewport={{ once: true }} transition={{ duration: 1.2, delay: i * 0.1, ease: "easeOut" }}
-                      className="h-full rounded-full"
-                      style={{ background: `linear-gradient(90deg, ${g.color}, var(--eth-green))` }} />
-                  </div>
-                </div>
+            <div className="flex flex-wrap gap-2">
+              {g.skills.map((s) => (
+                <motion.button
+                  key={s}
+                  type="button"
+                  whileHover={{ scale: 1.06 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setActiveSkill(activeSkill === s ? null : s)}
+                  className={`rounded-xl px-3.5 py-1.5 text-sm font-medium transition-all cursor-pointer ${
+                    activeSkill === s
+                      ? "eth-stripe text-white shadow-glow"
+                      : "glass hover:shadow-card"
+                  }`}
+                >
+                  {s}
+                </motion.button>
               ))}
             </div>
           </motion.div>
@@ -554,7 +519,9 @@ function Skills() {
           <h4 className="font-display text-lg font-bold flex items-center gap-2"><Zap className="h-4 w-4 text-[var(--eth-yellow)]" />Tools</h4>
           <div className="mt-4 flex flex-wrap gap-2">
             {tools.map((t) => (
-              <span key={t} className="rounded-lg border border-border px-3 py-1.5 text-sm font-medium bg-surface-elevated">{t}</span>
+              <motion.span key={t} whileHover={{ scale: 1.06 }} className="inline-block rounded-xl glass px-3.5 py-1.5 text-sm font-medium cursor-default hover:shadow-card transition-all">
+                {t}
+              </motion.span>
             ))}
           </div>
         </motion.div>
@@ -563,7 +530,9 @@ function Skills() {
           <h4 className="font-display text-lg font-bold flex items-center gap-2"><Heart className="h-4 w-4 text-[var(--eth-red)]" />Soft Skills</h4>
           <div className="mt-4 flex flex-wrap gap-2">
             {soft.map((t) => (
-              <span key={t} className="rounded-lg border border-border px-3 py-1.5 text-sm font-medium bg-surface-elevated">{t}</span>
+              <motion.span key={t} whileHover={{ scale: 1.06 }} className="inline-block rounded-xl glass px-3.5 py-1.5 text-sm font-medium cursor-default hover:shadow-card transition-all">
+                {t}
+              </motion.span>
             ))}
           </div>
         </motion.div>
@@ -926,9 +895,9 @@ function Contact() {
               <Mail className="h-5 w-5" />
             </span>
             <div className="mt-4 text-xs uppercase tracking-wider text-muted-foreground">Email</div>
-            <a href="mailto:pistavrosbegashaw@gmail.com"
+            <a href="mailto:ribkabegashaw179a@gmail.com"
               className="block mt-1 font-semibold hover:text-[var(--eth-green)] transition-colors break-all">
-              pistavrosbegashaw@gmail.com
+              ribkabegashaw179a@gmail.com
             </a>
           </div>
           <div className="rounded-2xl glass p-6 shadow-card">
@@ -945,7 +914,7 @@ function Contact() {
                 { Icon: Linkedin, href: "https://www.linkedin.com/in/ribka-begashaw-lissanu-820439376" },
                 { Icon: Instagram, href: "https://instagram.com/pistavros12" },
                 { Icon: Send, href: "https://t.me/genesis2415" },
-                { Icon: Mail, href: "mailto:pistavrosbegashaw@gmail.com" },
+                { Icon: Mail, href: "mailto:ribkabegashaw179a@gmail.com" },
               ].map(({ Icon, href }, i) => (
                 <a key={i} href={href} target="_blank" rel="noreferrer" className="grid h-10 w-10 place-items-center rounded-sm border border-border hover:eth-stripe hover:text-white hover:border-transparent transition-all">
                   <Icon className="h-4 w-4" />
@@ -1019,15 +988,15 @@ function Footer() {
           </div>
           <div>
             <h4 className="font-semibold mb-3">Get in touch</h4>
-            <a href="mailto:pistavrosbegashaw@gmail.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors break-all">
-              pistavrosbegashaw@gmail.com
+            <a href="mailto:ribkabegashaw179a@gmail.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors break-all">
+              ribkabegashaw179a@gmail.com
             </a>
             <div className="mt-4 flex gap-2">
               {[
                 { Icon: Linkedin, href: "https://www.linkedin.com/in/ribka-begashaw-lissanu-820439376" },
                 { Icon: Instagram, href: "https://instagram.com/pistavros12" },
                 { Icon: Send, href: "https://t.me/genesis2415" },
-                { Icon: Mail, href: "mailto:pistavrosbegashaw@gmail.com" },
+                { Icon: Mail, href: "mailto:ribkabegashaw179a@gmail.com" },
               ].map(({ Icon, href }, i) => (
                 <a key={i} href={href} target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-lg border border-border hover:eth-stripe hover:text-white hover:border-transparent transition-all">
                   <Icon className="h-4 w-4" />
