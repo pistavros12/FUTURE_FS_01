@@ -371,7 +371,7 @@ function About() {
             often called "the harp of King David."
           </p>
           <div className="flex flex-wrap gap-2 pt-2">
-            {["Community-Driven", "Team Player", "Maths Lover", "Begena Player", "Orthodox Christian", "Lifelong Learner"].map((t) => (
+            {["Community-Driven", "Team Player", "Math Lover", "Begena Player", "Orthodox Christian", "Lifelong Learner"].map((t) => (
               <span key={t} className="rounded-full glass px-3 py-1.5 text-sm font-medium">
                 {t}
               </span>
