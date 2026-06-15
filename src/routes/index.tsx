@@ -461,31 +461,20 @@ function Skills() {
   const groups = [
     {
       title: "Design", icon: Palette, color: "var(--eth-yellow)",
-      skills: [
-        { name: "Graphic Design", level: 85 },
-        { name: "Visual Communication", level: 80 },
-        { name: "Creative Thinking", level: 90 },
-      ],
+      skills: ["Graphic Design", "Visual Communication", "Creative Thinking", "UI/UX Design"],
     },
     {
       title: "Programming", icon: Code2, color: "var(--eth-green)",
-      skills: [
-        { name: "HTML", level: 85 },
-        { name: "CSS", level: 80 },
-        { name: "JavaScript", level: 70 },
-      ],
+      skills: ["HTML", "CSS", "JavaScript", "React", "Node.js"],
     },
     {
       title: "Development", icon: Bot, color: "var(--eth-red)",
-      skills: [
-        { name: "Bot Development", level: 75 },
-        { name: "Front-End Development", level: 70 },
-        { name: "Problem Solving", level: 85 },
-      ],
+      skills: ["Bot Development", "Front-End Development", "Problem Solving", "Web Development"],
     },
   ];
-  const tools = ["Git", "GitHub", "VS Code", "Figma"];
-  const soft = ["Communication", "Teamwork", "Continuous Learning", "Adaptability"];
+  const tools = ["Git", "GitHub", "VS Code", "Figma", "Vite", "Bun"];
+  const soft = ["Communication", "Teamwork", "Continuous Learning", "Adaptability", "Leadership"];
+  const [activeSkill, setActiveSkill] = useState<string | null>(null);
 
   return (
     <Section id="skills" eyebrow="Skills" title="Tools of the craft"
@@ -495,27 +484,29 @@ function Skills() {
           <motion.div key={g.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ delay: gi * 0.1, duration: 0.6 }}
             className="rounded-2xl glass p-6 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mb-5">
               <span className="grid h-11 w-11 place-items-center rounded-xl"
                 style={{ background: `color-mix(in oklch, ${g.color} 18%, transparent)` }}>
                 <g.icon className="h-5 w-5" style={{ color: g.color }} />
               </span>
               <h3 className="font-display text-lg font-bold">{g.title}</h3>
             </div>
-            <div className="mt-5 space-y-4">
-              {g.skills.map((s, i) => (
-                <div key={s.name}>
-                  <div className="flex justify-between text-sm mb-1.5">
-                    <span className="font-medium">{s.name}</span>
-                    <span className="text-muted-foreground">{s.level}%</span>
-                  </div>
-                  <div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
-                    <motion.div initial={{ width: 0 }} whileInView={{ width: `${s.level}%` }}
-                      viewport={{ once: true }} transition={{ duration: 1.2, delay: i * 0.1, ease: "easeOut" }}
-                      className="h-full rounded-full"
-                      style={{ background: `linear-gradient(90deg, ${g.color}, var(--eth-green))` }} />
-                  </div>
-                </div>
+            <div className="flex flex-wrap gap-2">
+              {g.skills.map((s) => (
+                <motion.button
+                  key={s}
+                  type="button"
+                  whileHover={{ scale: 1.06 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setActiveSkill(activeSkill === s ? null : s)}
+                  className={`rounded-xl px-3.5 py-1.5 text-sm font-medium transition-all cursor-pointer ${
+                    activeSkill === s
+                      ? "eth-stripe text-white shadow-glow"
+                      : "glass hover:shadow-card"
+                  }`}
+                >
+                  {s}
+                </motion.button>
               ))}
             </div>
           </motion.div>
@@ -528,7 +519,9 @@ function Skills() {
           <h4 className="font-display text-lg font-bold flex items-center gap-2"><Zap className="h-4 w-4 text-[var(--eth-yellow)]" />Tools</h4>
           <div className="mt-4 flex flex-wrap gap-2">
             {tools.map((t) => (
-              <span key={t} className="rounded-lg border border-border px-3 py-1.5 text-sm font-medium bg-surface-elevated">{t}</span>
+              <motion.span key={t} whileHover={{ scale: 1.06 }} className="inline-block rounded-xl glass px-3.5 py-1.5 text-sm font-medium cursor-default hover:shadow-card transition-all">
+                {t}
+              </motion.span>
             ))}
           </div>
         </motion.div>
@@ -537,7 +530,9 @@ function Skills() {
           <h4 className="font-display text-lg font-bold flex items-center gap-2"><Heart className="h-4 w-4 text-[var(--eth-red)]" />Soft Skills</h4>
           <div className="mt-4 flex flex-wrap gap-2">
             {soft.map((t) => (
-              <span key={t} className="rounded-lg border border-border px-3 py-1.5 text-sm font-medium bg-surface-elevated">{t}</span>
+              <motion.span key={t} whileHover={{ scale: 1.06 }} className="inline-block rounded-xl glass px-3.5 py-1.5 text-sm font-medium cursor-default hover:shadow-card transition-all">
+                {t}
+              </motion.span>
             ))}
           </div>
         </motion.div>
