@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import profileAsset from "@/assets/ribka-portrait-v2.png.asset.json";
 const profileImg = profileAsset.url;
-import graduationKg from "@/assets/graduation-kg.png.asset.json";
+
 import certSpaceScience from "@/assets/cert-space-science.png.asset.json";
 import certJusssRank from "@/assets/cert-jusss-rank.png.asset.json";
 import certWomensClub from "@/assets/cert-womens-club.png.asset.json";
